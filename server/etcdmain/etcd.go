@@ -462,6 +462,11 @@ func checkSupportArch() {
 	if runtime.GOARCH == "amd64" || runtime.GOARCH == "ppc64le" || runtime.GOARCH == "s390x" {
 		return
 	}
+
+	if runtime.GOARCH == "arm64"  {
+		return
+	}
+
 	// unsupported arch only configured via environment variable
 	// so unset here to not parse through flag
 	defer os.Unsetenv("ETCD_UNSUPPORTED_ARCH")
